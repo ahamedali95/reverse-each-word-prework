@@ -1,10 +1,10 @@
 def reverse_each_word(sentence)
   words = sentence.split(" ")
-  new_sentence = ""
 
-  words.each do |word|
-    new_sentence += word.reverse() + " "
+  words.each_with_index do |word, idx|
+    words.slice!(idx, 1)
+    words.insert(idx, word.reverse())
   end
 
-  new_sentence
+  words.join(" ")
 end
